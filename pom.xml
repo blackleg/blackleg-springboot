@@ -3,14 +3,15 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>es.blackleg.springboot</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
     <name>${project.groupId}.${project.artifactId}</name>
     <scm>
         <connection>scm:git:git://github.com/blackleg/blackleg-springboot.git</connection>
         <developerConnection>scm:git:ssh://github.com:blackleg/blackleg-springboot.git</developerConnection>
         <url>https://github.com/blackleg/blackleg-springboot</url>
-    </scm>
+      <tag>parent-1.0.1</tag>
+  </scm>
     <developers>
         <developer>
             <name>Hector Espert</name>
