@@ -1,10 +1,10 @@
-package es.blackleg.springboot.error.exception;
+package es.blackleg.springboot.exception;
 
 /**
  *
  * @author Hector Espert
  */
-public class ApiException extends RuntimeException {
+public class ApiException extends RuntimeException implements ExceptionWithCode {
     
     private static final String FORMAT = "%s: %s, %s";
 
@@ -30,6 +30,7 @@ public class ApiException extends RuntimeException {
         this.code = code;
     }
 
+    @Override
     public String getCode() {
         return code;
     }

@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>es.blackleg.springboot</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.6-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>${project.groupId}.${project.artifactId}</name>
     <scm>
-        <connection>scm:git:git@github.com:blackleg/blackleg-springboot.git</connection>
-        <developerConnection>scm:git:git@github.com:blackleg/blackleg-springboot.git</developerConnection>
-        <url>https://github.com/blackleg/blackleg-springboot</url>
+        <connection>scm:git:git@github.com:blackleg/springboot.git</connection>
+        <developerConnection>scm:git:git@github.com:blackleg/springboot.git</developerConnection>
+        <url>https://github.com/blackleg/springboot</url>
         <tag>HEAD</tag>
     </scm>
     <developers>
@@ -61,5 +61,6 @@
     </build>
     <modules>
         <module>api-error-spring-boot</module>
+        <module>exception</module>
     </modules>
 </project>

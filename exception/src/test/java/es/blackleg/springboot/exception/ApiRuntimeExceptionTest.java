@@ -1,23 +1,19 @@
-package es.blackleg.springboot.error.exception;
+package es.blackleg.springboot.exception;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Hector Espert
- */
-public class ApiExceptionTest {
-    
+public class ApiRuntimeExceptionTest {
     private static final String CODE = "code";
     private static final String MESSAGE = "message";
-            
-    private ApiException exception;
-    
+
+    private ApiRuntimeException exception;
+
     @Before
     public void setUp() {
-        exception = new ApiException(CODE, MESSAGE);
+        exception = new ApiRuntimeException(CODE, MESSAGE);
     }
 
     @Test
@@ -35,8 +31,8 @@ public class ApiExceptionTest {
     @Test
     public void testToString() {
         String result = exception.toString();
-        String expected = "es.blackleg.springboot.error.exception.ApiException: code, message";
+        String expected = "es.blackleg.springboot.exception.ApiRuntimeException: code, message";
         assertEquals(expected, result);
     }
-    
+
 }
