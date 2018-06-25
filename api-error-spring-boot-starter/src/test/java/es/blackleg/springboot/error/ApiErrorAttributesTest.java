@@ -1,12 +1,14 @@
 package es.blackleg.springboot.error;
 
-import es.blackleg.springboot.error.exception.ApiException;
 import java.util.Map;
+
+import es.blackleg.springboot.exception.ApiException;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.mock.web.MockHttpServletRequest;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.request.ServletWebRequest;
+import org.springframework.web.context.request.WebRequest;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
@@ -19,24 +21,23 @@ public class ApiErrorAttributesTest {
 
     private MockHttpServletRequest request;
 
-    private RequestAttributes requestAttributes;
+    private WebRequest webRequest;
 
     @Before
     public void setUp() {
         errorAttributes = new ApiErrorAttributes();
         request = new MockHttpServletRequest();
-        requestAttributes = new ServletRequestAttributes(request);
+        webRequest = new ServletWebRequest(request);
     }
 
     @Test
-    public void testApiException() throws Exception {
+    public void testApiException() {
         String code = "exception-code";
         String message = "message";
         ApiException apiException = new ApiException(code, message);
         request.setAttribute("javax.servlet.error.exception", apiException);
-        Map<String, Object> attributes = errorAttributes.getErrorAttributes(requestAttributes, false);
-        assertThat(errorAttributes.getError(requestAttributes)).isSameAs(apiException);
-        assertThat(attributes.get("exception")).isEqualTo(ApiException.class.getName());
+        Map<String, Object> attributes = errorAttributes.getErrorAttributes(webRequest, false);
+        assertThat(errorAttributes.getError(webRequest)).isSameAs(apiException);
         assertThat(attributes.get("message")).isEqualTo(message);
         assertThat(attributes.get("code")).isEqualTo(code);
     }
